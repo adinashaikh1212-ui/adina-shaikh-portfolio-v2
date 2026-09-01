@@ -25,11 +25,11 @@ Allow: /manifest.json
 Allow: /assets/
 
 # Sitemap location
-Sitemap: https://nishadkindre.vercel.app/sitemap.xml
+
 
 # Additional directives for SEO
 # Clean URLs and profile pages are crawlable
 Allow: /*
 
 # Note: This is an open robots.txt that welcomes all crawlers
-# Nishad Kindre - Portfolio is designed to be fully accessible for indexing
+# Adina Shaikh Engineering Portfolio is designed to be fully accessible for indexing

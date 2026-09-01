@@ -7,74 +7,108 @@ const About = () => {
   const [ref, , hasIntersected] = useIntersectionObserver();
 
   return (
-    <section id="about" ref={ref} className="py-24 px-6 lg:px-20 bg-nb-white">
-      <div className="max-w-5xl mx-auto">
-        <SectionHeading number="01" title="About Me" />
+    <section
+      id="about"
+      ref={ref}
+      className="py-24 md:py-32 px-6 lg:px-20 bg-white"
+    >
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading number="01" title="About" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-          {/* Bio Text */}
-          <div className="lg:col-span-2">
-            <div
-              className={`space-y-5 text-nb-muted text-lg leading-relaxed transition-all duration-700 ${
-                hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-14 lg:gap-20 items-start">
+          {/* Biography and focus areas */}
+          <div
+            className={`transition-all duration-700 ${
+              hasIntersected
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-6'
+            }`}
+          >
+            <div className="space-y-6 text-nb-muted text-lg leading-8 max-w-3xl">
               <p>
-                Hello! I'm Nishad Kindre, and I enjoy creating things that live on the internet.
-                I started my development journey in 2023 and haven't looked back since.
-                There's something addictive about solving problems with code and seeing users
-                interact with what you've built.
+                I am a mechanical engineer and Erasmus Mundus EMSHIP+ scholar
+                specializing in the advanced design of sustainable ships and
+                offshore structures. My work connects ship design, structural
+                mechanics, hydrodynamics and sustainable engineering.
               </p>
+
               <p>
-                Fast-forward to today, I've had the privilege of working at a {' '}
-                <a
-                  href="https://medtigo.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-nb-black underline underline-offset-2 decoration-nb-yellow hover:decoration-2 transition-all"
-                >
-                  US based company
-                </a>{' '}
-                since 2024. My focus is building accessible, inclusive products for
-                end users & developers.
+                Through academic, research and industrial experience across
+                Europe, Canada, Türkiye, Taiwan and Pakistan, I have contributed
+                to projects involving computational fluid dynamics, finite
+                element analysis, CAD, parametric modelling, experimental
+                testing and engineering design optimization.
               </p>
-              <p className="font-medium text-nb-black">Technologies I work with:</p>
+
+              <p>
+                I am particularly interested in engineering problems that require
+                design, simulation and validation to work together; from ship
+                hydrodynamics and offshore structures to lightweight components,
+                advanced manufacturing and sustainable transportation systems.
+              </p>
             </div>
 
-            {/* Skills */}
+            {/* Core engineering areas */}
             <div
-              className={`mt-6 transition-all duration-700 delay-200 ${
-                hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              className={`mt-12 transition-all duration-700 delay-150 ${
+                hasIntersected
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-5'
               }`}
             >
-              <ul className="flex flex-wrap gap-2 font-mono text-sm">
+              <h3 className="font-display font-semibold text-nb-black text-lg mb-6">
+                Core Engineering Areas
+              </h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 max-w-3xl">
                 {skills.map(skill => (
-                  <li key={skill} className="tag-brutal">
-                    {skill}
+                  <li
+                    key={skill}
+                    className="flex items-start gap-3 text-sm text-nb-muted"
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-marine-600 mt-2 shrink-0"
+                      aria-hidden="true"
+                    />
+                    <span>{skill}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div
-            className={`lg:col-span-1 transition-all duration-700 delay-300 ${
-              hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          {/* Profile image */}
+          <figure
+            className={`transition-all duration-700 delay-200 ${
+              hasIntersected
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-6'
             }`}
           >
-            <div className="relative inline-block group">
-              <div className="w-64 h-64 border-2 border-nb-black overflow-hidden bg-nb-gray">
+            <div className="relative">
+              <div
+                className="absolute -inset-3 bg-marine-100 rounded-xl translate-x-3 translate-y-3"
+                aria-hidden="true"
+              />
+
+              <div className="relative overflow-hidden rounded-xl bg-nb-gray shadow-brutal-lg">
                 <img
-                  src="./nishad.png"
-                  alt="Nishad Kindre"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  src="/adina.png"
+                  alt="Adina Shaikh wearing her graduation medals"
+                  className="w-full aspect-[4/5] object-cover object-center"
                 />
               </div>
-              {/* hard offset shadow block */}
-              <div className="absolute top-3 left-3 w-64 h-64 border-2 border-nb-black bg-nb-yellow -z-10 transition-all duration-200 group-hover:top-4 group-hover:left-4" />
             </div>
-          </div>
+
+            <figcaption className="mt-5 pl-1">
+              <p className="font-display font-semibold text-nb-black">
+                Adina Shaikh
+              </p>
+              <p className="text-sm text-nb-muted mt-1">
+                EMSHIP+ Scholar · Mechanical Engineer
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

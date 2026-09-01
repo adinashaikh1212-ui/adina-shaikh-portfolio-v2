@@ -8,21 +8,35 @@ const FeaturedProjects = () => {
   const [ref, , hasIntersected] = useIntersectionObserver();
 
   return (
-    <section id="projects" ref={ref} className="py-24 px-6 lg:px-20 bg-nb-white">
-      <div className="max-w-5xl mx-auto">
-        <SectionHeading number="03" title="Some Things I've Built" />
+    <section
+      id="projects"
+      ref={ref}
+      className="py-24 md:py-32 px-6 lg:px-20 bg-white"
+    >
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading
+          number="04"
+          title="Featured Engineering Projects"
+        />
 
-        <div className="space-y-10">
+        <p className="text-nb-muted text-lg leading-8 max-w-3xl mb-14">
+          Selected work demonstrating the integration of engineering design,
+          numerical simulation, structural analysis and technical validation.
+        </p>
+
+        <div
+          className={`border-b border-nb-gray-mid transition-all duration-700 ${
+            hasIntersected
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-6'
+          }`}
+        >
           {featuredProjects.map((project, index) => (
-            <div
-              key={index}
-              className={`transition-all duration-700 ${
-                hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 120}ms` }}
-            >
-              <FeaturedProjectCard project={project} flip={index % 2 !== 0} />
-            </div>
+            <FeaturedProjectCard
+              key={project.title}
+              project={project}
+              flip={index % 2 !== 0}
+            />
           ))}
         </div>
       </div>

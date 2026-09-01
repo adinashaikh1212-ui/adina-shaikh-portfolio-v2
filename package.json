@@ -1,24 +1,24 @@
 {
-  "name": "portfolio",
-  "private": false,
+  "name": "adina-shaikh-engineering-portfolio",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Nishad Kindre's Portfolio - A showcase of projects and skills.",
+  "description": "Engineering portfolio of Adina Shaikh, featuring ship design, offshore structures, CFD, FEA and mechanical engineering projects.",
   "keywords": [
     "portfolio",
+    "engineering",
+    "marine engineering",
+    "offshore engineering",
+    "mechanical engineering",
+    "naval architecture",
+    "ship design",
+    "CFD",
+    "FEA",
     "react",
-    "vite",
-    "tailwindcss",
-    "web development",
-    "projects"
+    "vite"
   ],
-  "author": "Nishad Kindre <nishadkindre@gmail.com>",
+  "author": "Adina Shaikh <adeena.shykh1@gmail.com>",
   "license": "MIT",
-  "homepage": "https://nishadkindre.vercel.app",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nishadkindre/portfolio.git"
-  },
   "engines": {
     "node": ">=24.0.0",
     "npm": ">=10.0.0"

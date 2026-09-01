@@ -5,26 +5,52 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* scroll-snap-type: y proximity; */
+    scroll-padding-top: 6rem;
   }
 
   body {
-    @apply bg-nb-white text-nb-black font-sans leading-relaxed;
+    @apply bg-nb-white text-nb-black font-sans leading-relaxed antialiased;
     margin: 0;
     padding: 0;
+    min-width: 320px;
     overflow-x: hidden;
   }
 
-  /* section {
-    scroll-snap-align: start;
-  } */
-
-  ::selection {
-    @apply bg-nb-yellow text-nb-black;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
   }
 
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    @apply bg-marine-200 text-nb-black;
+  }
+
+  :focus-visible {
+    outline: 2px solid #176b87;
+    outline-offset: 3px;
+  }
+
+  /* Scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -32,104 +58,81 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-nb-black;
+    @apply bg-navy-400;
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-nb-muted;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold;
+    @apply bg-marine-700;
   }
 }
 
 @layer components {
-  /* ── BUTTONS ──────────────────────────────── */
+  /*
+   * Transitional button classes.
+   * These remain available for any older component that still imports Button.jsx,
+   * but now use the professional visual system.
+   */
+
   .btn-brutal {
     @apply inline-flex items-center justify-center
-           font-mono text-sm font-medium tracking-wide
-           border-2 border-nb-black bg-nb-yellow text-nb-black
-           shadow-brutal
-           hover:-translate-y-0.5 hover:shadow-brutal-lg hover:bg-nb-yellow-hover
-           active:translate-y-0 active:shadow-brutal-sm
-           transition-all duration-150 ease-in-out
-           px-6 py-3;
+           rounded-md
+           bg-nb-black text-nb-white
+           px-6 py-3
+           text-sm font-semibold
+           hover:bg-marine-700
+           transition-colors duration-200;
   }
 
   .btn-brutal-outline {
     @apply inline-flex items-center justify-center
-           font-mono text-sm font-medium tracking-wide
-           border-2 border-nb-black bg-transparent text-nb-black
-           shadow-brutal
-           hover:-translate-y-0.5 hover:shadow-brutal-lg hover:bg-nb-gray
-           active:translate-y-0 active:shadow-brutal-sm
-           transition-all duration-150 ease-in-out
-           px-6 py-3;
+           rounded-md
+           border border-nb-gray-mid
+           bg-white text-nb-black
+           px-6 py-3
+           text-sm font-semibold
+           hover:border-marine-600 hover:text-marine-700
+           transition-colors duration-200;
   }
 
   .btn-brutal-ghost {
     @apply inline-flex items-center justify-center
-           font-mono text-sm font-medium tracking-wide
+           rounded-md
            bg-transparent text-nb-black
-           hover:bg-nb-gray
-           transition-all duration-150 ease-in-out
-           px-4 py-2;
+           px-4 py-2
+           text-sm font-semibold
+           hover:bg-marine-50 hover:text-marine-700
+           transition-colors duration-200;
   }
 
-  /* ── CARDS ────────────────────────────────── */
+  /*
+   * Transitional card and tag classes.
+   * These prevent any older component from reverting to the original style.
+   */
+
   .card-brutal {
-    @apply border-2 border-nb-black bg-white shadow-brutal
-           hover:-translate-y-1 hover:shadow-brutal-lg
-           transition-all duration-200 ease-in-out;
+    @apply rounded-xl
+           border border-nb-gray-mid
+           bg-white
+           hover:border-marine-300 hover:shadow-brutal
+           transition-all duration-200;
   }
 
-  /* ── TAGS/CHIPS ──────────────────────────── */
   .tag-brutal {
-    @apply font-mono text-xs border border-nb-black bg-nb-gray
-           px-2 py-0.5 text-nb-black font-medium;
+    @apply inline-flex items-center
+           rounded-full
+           bg-marine-50 text-marine-800
+           px-3 py-1
+           text-xs font-medium;
   }
 
-  /* ── SECTION HEADING ─────────────────────── */
-  .section-heading {
-    @apply flex items-center gap-4 mb-14;
-  }
-
-  .section-heading-num {
-    @apply font-mono text-sm font-medium text-nb-muted;
-  }
-
-  .section-heading-title {
-    @apply font-display font-bold text-nb-black text-2xl md:text-3xl;
-  }
-
-  .section-heading-line {
-    @apply flex-1 h-0.5 bg-nb-black;
-  }
-
-  /* ── NAV LINKS ──────────────────────────── */
-  .nav-link {
-    @apply relative font-mono text-sm font-medium text-nb-black py-1
-           transition-colors duration-150;
-  }
-
-  .nav-link::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-nb-yellow transition-all duration-200;
-  }
-
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    @apply w-full;
-  }
-
-  /* ── FADE ANIMATIONS ────────────────────── */
   .fade-in {
-    @apply opacity-0 translate-y-4;
-    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fade-in-up 0.6s ease-out forwards;
   }
 
-  @keyframes fadeInUp {
+  @keyframes fade-in-up {
     to {
       opacity: 1;
       transform: translateY(0);
@@ -137,48 +140,18 @@
   }
 }
 
-/* ── CUSTOM CURSOR ────────────────────────── */
-/* @media (hover: hover) and (pointer: fine) {
-  body { cursor: none !important; }
-  a, button, [role="button"] { cursor: none !important; }
-
-  .cursor-dot {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: #FFE500;
-    border: 2px solid #0D0D0D;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.18s ease, height 0.18s ease, background 0.18s ease;
-    will-change: left, top;
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  .cursor-dot--hover {
-    width: 26px;
-    height: 26px;
-    background: transparent;
-    border: 2px solid #0D0D0D;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-} */
-
-/* ── STRIPE BACKGROUND ───────────────────── */
-.stripe-bg {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    #FFE500 0px, #FFE500 8px,
-    transparent 8px, transparent 18px
-  );
-}
-
-/* ── OUTLINED TEXT UTILITIES ─────────────── */
-.text-outline-ghost {
-  -webkit-text-stroke: 1.5px rgba(13, 13, 13, 0.07);
-  color: transparent;
-}
-
-.text-outline-name {
-  -webkit-text-stroke: 2.5px #0D0D0D;
-  color: transparent;
 }
