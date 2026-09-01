@@ -1,59 +1,54 @@
 import React from 'react';
-import SocialLinks from '../ui/SocialLinks';
+import { personalInfo, socialLinks } from '../../utils/constants';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const linkedin = socialLinks.find(link => link.icon === 'linkedin');
+
   return (
-    <footer className="bg-nb-white border-t-2 border-nb-black pt-8 pb-6 px-6">
-      {/* Full-bleed outlined name */}
-      {/* <div className="border-b-2 border-nb-black px-4 pt-8 pb-3 overflow-hidden">
-        <h2
-          className="font-display font-black uppercase leading-none tracking-tight text-outline-name"
-          style={{ fontSize: 'clamp(3.5rem, 11vw, 9rem)' }}
-        >
-          NISHAD KINDRE
-        </h2>
-      </div> */}
+    <footer className="bg-nb-black text-nb-white px-6 lg:px-20">
+      <div className="max-w-6xl mx-auto py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+        <div>
+          <p className="font-display font-semibold">
+            Adina Shaikh
+          </p>
 
-      <div className="max-w-5xl mx-auto">
-        {/* Side elements for desktop */}
-        <div className="hidden lg:fixed lg:bottom-0 lg:left-10 lg:flex lg:flex-col lg:items-center gap-4">
-          <SocialLinks orientation="vertical" />
-          <div className="w-0.5 h-24 bg-nb-black" />
-        </div>
-
-        <div className="hidden lg:fixed lg:bottom-0 lg:right-10 lg:flex lg:flex-col lg:items-center gap-4">
-          <a
-            href="mailto:nishadkindre@gmail.com"
-            className="font-mono text-xs text-nb-muted hover:text-nb-black transition-colors duration-150"
-            style={{ writingMode: 'vertical-rl' }}
-          >
-            nishadkindre@gmail.com
-          </a>
-          <div className="w-0.5 h-24 bg-nb-black" />
-        </div>
-
-        {/* Mobile footer */}
-        <div className="lg:hidden text-center mb-6">
-          <SocialLinks orientation="horizontal" className="justify-center mb-4" />
-          <a href="mailto:nishadkindre@gmail.com" className="font-mono text-xs text-nb-muted hover:text-nb-black transition-colors duration-150 block">
-            nishadkindre@gmail.com
-          </a>
-        </div>
-
-        {/* Footer credit */}
-        <div className="text-center">
-          <p className="font-mono text-xs text-nb-muted">
-            Built with ♥ by{' '}
-            <a
-              href="https://github.com/nishadkindre"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-nb-black font-semibold underline underline-offset-2 decoration-nb-yellow hover:decoration-2 transition-all"
-            >
-              Nishad Kindre
-            </a>
+          <p className="text-sm text-nb-white/65 mt-1">
+            Marine, Offshore &amp; Mechanical Engineer
           </p>
         </div>
+
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="text-nb-white/75 hover:text-white transition-colors"
+          >
+            Email
+          </a>
+
+          {linkedin && (
+            <a
+              href={linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-nb-white/75 hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+          )}
+
+         
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto border-t border-white/15 py-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-nb-white/55">
+        <p>
+          © {currentYear} Adina Shaikh
+        </p>
+
+        <p>
+          {personalInfo.location}
+        </p>
       </div>
     </footer>
   );
