@@ -17,8 +17,13 @@
     "react",
     "vite"
   ],
-  "author": "Adina Shaikh <adeena.shykh1@gmail.com>",
+   "author": "Adina Shaikh <adeena.shykh1@gmail.com>",
   "license": "MIT",
+  "homepage": "https://adina-shaikh-engineering.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adinashaikh1212-ui/adina-shaikh-portfolio-v2.git"
+  },
   "engines": {
     "node": ">=24.0.0",
     "npm": ">=10.0.0"

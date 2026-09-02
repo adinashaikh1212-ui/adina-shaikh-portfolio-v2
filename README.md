@@ -1,5 +1,5 @@
 # Adina Shaikh — Engineering Portfolio
-
+**Live portfolio:** [adina-shaikh-engineering.vercel.app](https://adina-shaikh-engineering.vercel.app/)
 A responsive engineering portfolio presenting my education, professional experience, scholarships, awards and selected projects in marine, offshore and mechanical engineering.
 
 The portfolio highlights work involving ship design, offshore structures, computational fluid dynamics, finite element analysis, CAD, parametric modelling, experimental testing and sustainable engineering systems.
